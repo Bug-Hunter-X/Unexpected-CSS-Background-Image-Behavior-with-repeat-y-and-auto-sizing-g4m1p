@@ -1,0 +1,22 @@
+The solution is to remove or modify the `background-size` property.  If you want the image to maintain its aspect ratio while repeating vertically, simply remove `background-size` completely. Alternatively, use a different approach, for example:
+
+```css
+div {
+  background-image: url('image.jpg');
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+```
+
+The `background-size: contain;` property allows the image to maintain its aspect ratio and scales it to fit within the container (either by width or height depending on which fits first) while respecting the `repeat-y` setting.  Or you could use `cover` to ensure the whole background is covered.
+
+Another approach, to explicitly specify the width, might be:
+
+```css
+div {
+  background-image: url('image.jpg');
+  background-repeat: repeat-y;
+  width: 100%; /*Explicit width declaration*/
+}
+```
+This is usually less flexible than contain or cover.
