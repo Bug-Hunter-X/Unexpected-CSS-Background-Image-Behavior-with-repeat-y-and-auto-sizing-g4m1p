@@ -1,0 +1,11 @@
+The following CSS code snippet demonstrates an unusual error.  The intention is to style an element with a background image that repeats vertically but not horizontally. However, this results in the background not being displayed at all:
+
+```css
+div {
+  background-image: url('image.jpg');
+  background-repeat: repeat-y;
+  background-size: auto 100%; /*This line is the culprit*/
+}
+```
+
+The issue arises because `background-size: auto 100%;`  interferes with `background-repeat: repeat-y`.  While intending to set the height to 100% and let the width adjust automatically, this combination prevents the image from being shown, likely because the browser's interpretation of `auto` in this context conflicts with the repetition. 
